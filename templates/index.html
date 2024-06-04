@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Video</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <a-scene embedded arjs="sourceType: webcam; cameraParametersUrl: https://cdn.jsdelivr.net/npm/ar.js/aframe/vendor/aframe-ar/nft/qrcode_4_aruco_and_multi; sourceWidth: 320; sourceHeight: 240; displayWidth: 320; displayHeight: 240;">
+        <a-marker type="pattern" url="static/marker_test.patt">
+            <a-video src="{{ url_for('static', filename='video.mp4') }}" width="1.6" height="0.9" position="0 0.45 0" autoplay loop muted></a-video>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
