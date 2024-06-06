@@ -1,5 +1,6 @@
-from app import app 
+from app import create_app  # Assuming you have a create_app function in app.py
 
-if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=8000, ssl_context=('cert.pem', 'key.pem'))
+app = create_app()  # Create an instance of your Flask app
 
+if __name__ == "__main__":
+    app.run()
